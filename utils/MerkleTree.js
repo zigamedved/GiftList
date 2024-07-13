@@ -3,7 +3,7 @@ const { bytesToHex } = require('ethereum-cryptography/utils');
 
 class MerkleTree {
   constructor(leaves) {
-    this.leaves = leaves.map(Buffer.from).map(keccak256);
+    this.leaves = leaves.map((x)=>Buffer.from(x)).map((xBuff)=>keccak256(xBuff)); // long form
     this.concat = (left, right) => keccak256(Buffer.concat([left, right]));
   }
 

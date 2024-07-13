@@ -17,3 +17,9 @@ const proof = merkleTree.getProof(index);
 console.log( verifyProof(proof, name, root) ); // true, Norman Block is in the list!
 
 // TRY IT OUT: what happens if you try a name not in the list, or a fake proof?
+
+const nameFalse = 'My Name';
+const indexFalse = niceList.findIndex(n => n === nameFalse);
+const proofFalse = merkleTree.getProof(indexFalse);
+
+console.log( verifyProof(proofFalse, nameFalse, root) ); // false, My Name is not in the list!
